@@ -16,11 +16,11 @@ app.post('/lembretes/:id/observacoes', (req, res) => {
     observacoesDoLembrete.push({ id: idObs, texto });
     observacoesPorLembreteId[req.params.id] =
     observacoesDoLembrete;
-    res.status(201).send(observacoesDoLembrete);
+    res.status(200).send(observacoesDoLembrete);
 });
 
 app.get('/lembretes/:id/observacoes', (req, res) => {
-    res.send(observacoesPorLembreteId(req.params.id) || []);
+    res.send(observacoesPorLembreteId[req.params.id] || []);
 });
 
 app.listen(5000, (() => {
